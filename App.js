@@ -2,12 +2,31 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import uuidv4 from 'uuid/v4'
 
 import EditableTimer from './components/EditableTimer'
 import ToggleableTimerForm from './components/ToggleableTimerForm'
 import { render } from 'react-dom';
 
 export default class App extends React.Component {
+  state = {
+    timers: [
+      {
+        title:'Mow the lawn',
+        project:'House Chores',
+        id: uuidv4(),
+        elapsed:'5456099',
+        isRunning: true,
+      },
+      {
+        title:'Bake squash',
+        project:'Kitchen Chores',
+        id: uuidv4(),
+        elapsed:'1273998',
+        isRunning: false,
+      }
+    ]
+  }
   render() {
   return (
     <View style={styles.appContainer}>
@@ -15,7 +34,7 @@ export default class App extends React.Component {
         <Text style={styles.title}>Timers</Text>
       </View>
       <ScrollView style={styles.timerList}>
-        <ToggleableTimerForm isOpen={false}/>
+        <ToggleableTimerForm isOpen={true}/>
         <EditableTimer
           id='1'
           title='Mow the lawn'
