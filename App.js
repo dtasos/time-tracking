@@ -12,46 +12,46 @@ export default class App extends React.Component {
   state = {
     timers: [
       {
-        title:'Mow the lawn',
-        project:'House Chores',
+        title: 'Mow the lawn',
+        project: 'House Chores',
         id: uuidv4(),
-        elapsed:'5456099',
+        elapsed: '5456099',
         isRunning: true,
       },
       {
-        title:'Bake squash',
-        project:'Kitchen Chores',
+        title: 'Bake squash',
+        project: 'Kitchen Chores',
         id: uuidv4(),
-        elapsed:'1273998',
+        elapsed: '1273998',
         isRunning: false,
       }
     ]
   }
   render() {
-  return (
-    <View style={styles.appContainer}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>Timers</Text>
+    const { timers } = this.state
+
+    return (
+      <View style={styles.appContainer}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Timers</Text>
+        </View>
+        <ScrollView style={styles.timerList}>
+          <ToggleableTimerForm isOpen={false} />
+          {timers.map(
+            ({ title, project, id, elapsed, isRunning }) => (
+              <EditableTimer
+                key={id}
+                id={id}
+                title={title}
+                project={project}
+                elapsed={elapsed}
+                isRunning={isRunning}
+              />
+            )
+          )}
+        </ScrollView>
       </View>
-      <ScrollView style={styles.timerList}>
-        <ToggleableTimerForm isOpen={true}/>
-        <EditableTimer
-          id='1'
-          title='Mow the lawn'
-          project='House Chores'
-          elapsed='8986300'
-          isRunning
-        />
-        <EditableTimer
-          id='2'
-          title='Bake squash'
-          project='Kitchen Chores'
-          elapsed='3890985'
-          editFormOpen
-        />
-      </ScrollView>      
-    </View>
-  );
+    );
   }
 }
 
