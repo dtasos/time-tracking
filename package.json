@@ -13,7 +13,10 @@
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native-get-random-values": "^1.5.0",
     "react-native-web": "~0.11.7",
+    "react-native-webview": "9.4.0",
+    "uid": "^1.0.0",
     "uuid": "^8.3.0",
     "uuidv4": "^6.2.3"
   },

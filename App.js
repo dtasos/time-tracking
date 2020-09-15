@@ -2,7 +2,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import uuidv4 from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid';
+import uid from 'uid';
+
 
 import EditableTimer from './components/EditableTimer'
 import ToggleableTimerForm from './components/ToggleableTimerForm'
@@ -14,14 +16,14 @@ export default class App extends React.Component {
       {
         title: 'Mow the lawn',
         project: 'House Chores',
-        id: uuidv4(),
+        id: uid(),
         elapsed: '5456099',
         isRunning: true,
       },
       {
         title: 'Bake squash',
         project: 'Kitchen Chores',
-        id: uuidv4(),
+        id: uid(),
         elapsed: '1273998',
         isRunning: false,
       }
